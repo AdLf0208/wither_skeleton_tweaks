@@ -1,0 +1,27 @@
+# Wither Skeleton Tweaks (Horizon port) — one flat package: content and code.
+#
+# Migrated 2026-11-18 from the retired `.hnmod` container (Horizon's mod-API merge,
+# #16941; the registry closed submission #589 for it). The manifest below is the only
+# one: identity, content capability and the exact native pins. `assets/` and `data/`
+# are the carried content (fragment + Immolation Blade), `src/` is the port's code.
+#
+# Licence: MIT (upstream, Copyright (c) 2019 Brennan Ward). Local-only until the
+# maintainer approves publishing (campaign ARCHITECTURE.md §8).
+id = "wstweaks"
+name = "Wither Skeleton Tweaks"
+version = "0.2.0"
+description = """Nether skeletons and strays become wither skeletons, skeletons drop no bows or stone swords, a wither skeleton without a skull drops a fragment, and the Immolation Blade burns its target for 150 seconds and beheads the skeleton family."""
+authors = ["Brennan Ward", "AdLf0208"]
+# The content API: exact and checked. This package ships carried content (the fragment and
+# the Immolation Blade) beside its code, so the capability is a real claim, not only the
+# schema's fixed value.
+api = "0.2"
+# The installation side, not the hook's: an integrated server belongs to the client
+# installation, so a LAN host or a single-player world needs both.
+side = "both"
+capabilities = ["registries"]
+
+[native]
+game = "26.3"
+horizon = "0b14f8acfd97fa2c750e42795249dcc981178ca4"
+mixins = "e59da9094f0c2fdda6c627fe9eff22dec6a906f0"

@@ -1,0 +1,20 @@
+[package]
+# Port of Wither Skeleton Tweaks 10.1.1 (Shadows-of-Fire/Wither-Skeleton-Tweaks, commit
+# 1962c69bd63c2c51496c3e57a8cb9b7b9ae5dca2, MIT). Minecraft Java 1.21.1 NeoForge; the
+# port targets Horizon 26.3 at the pin in horizon-mod.toml. Clean-room Rust rewrite from
+# the mod's behaviour (FINDINGS.md); local-only until publishing is approved, publishable
+# under MIT with this source.
+#
+# Cargo's name and version are not the mod's identity: horizon-mod.toml is.
+name = "wstweaks"
+version = "0.2.0"
+edition = "2024"
+license = "MIT"
+description = "Wither Skeleton Tweaks for Horizon: conversion, drop cleanup, skull fragments and the Immolation Blade"
+publish = false
+
+[dependencies]
+# The pinned SDK's API crate, fetched into .horizon/sdk/ by any `cargo horizon-mod` command
+# (the launcher builds against its own copy of the same build). This port adds no registry
+# dependency of its own; `cargo horizon-mod` is the only thing that needs the SDK.
+horizon-mod-api = { path = ".horizon/sdk/api/crates/horizon-mod-api" }
